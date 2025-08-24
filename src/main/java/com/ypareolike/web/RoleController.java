@@ -17,7 +17,7 @@ public class RoleController {
 
     private final RoleService roleService;
 
-    @GetMapping("/all")
+    @GetMapping("")
     public ResponseEntity<List<RoleResponseDto>> getAllRoles() {
         List<RoleResponseDto> allRoles = roleService.getAllRoles();
         return allRoles.isEmpty() ? ResponseEntity.noContent().build() : ResponseEntity.ok(allRoles);
@@ -28,7 +28,7 @@ public class RoleController {
         return ResponseEntity.ok(roleService.getRoleById(id));
     }
 
-    @PostMapping("/create")
+    @PostMapping("")
     public ResponseEntity<RoleResponseDto> createRole(@RequestBody RoleRequestDto roleRequestDto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(roleService.createRole(roleRequestDto));
     }
